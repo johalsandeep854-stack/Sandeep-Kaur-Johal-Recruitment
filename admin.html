@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandeep Kaur Johal Recruitment - Admin</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+    }
+
+    header {
+      background: #193f73;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #193f73;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .logout {
+      float: right;
+      background: #777;
+    }
+
+    .dashboard {
+      display: none;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .menu div {
+      background: #eef3f9;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Sandeep Kaur Johal Recruitment</h1>
+  <p>Private Admin Panel</p>
+</header>
+
+<div class="container">
+
+  <div class="card" id="loginCard">
+    <h2>Admin Login</h2>
+
+    <label>Email Address</label>
+    <input type="email" id="email" placeholder="Admin email">
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Admin password">
+
+    <button onclick="login()">Login</button>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <div class="dashboard" id="dashboard">
+
+    <div class="card">
+      <button class="logout" onclick="logout()">Logout</button>
+
+      <h2>Private Admin Dashboard</h2>
+      <p>Welcome to the recruitment administration area.</p>
+
+      <div class="menu">
+        <div>Jobs</div>
+        <div>Candidates</div>
+        <div>Employers</div>
+        <div>Applications</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  /*
+    IMPORTANT:
+    Replace these two values with your Supabase project values.
+
+    Do NOT put your Supabase password here.
+    Do NOT put a service-role key here.
+  */
+
+  const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+  const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+  const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+  );
+
+  async function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    message.textContent = "";
+
+    if (!email || !password) {
+      message.textContent = "Please enter your email and password.";
+      return;
+    }
+
+    const { error } = await supabaseClient.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+
+    if (error) {
+      message.textContent = "Login failed: " + error.message;
+      return;
+    }
+
+    document.getElementById("loginCard").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+  }
+
+  async function logout() {
+    await supabaseClient.auth.signOut();
+
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("loginCard").style.display = "block";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+  }
+
+  async function checkSession() {
+    const { data } = await supabaseClient.auth.getSession();
+
+    if (data.session) {
+      document.getElementById("loginCard").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+    }
+  }
+
+  checkSession();
+</script>
+
+</body>
+</html>
