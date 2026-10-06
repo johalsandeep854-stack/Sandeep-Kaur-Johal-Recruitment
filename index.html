@@ -4,182 +4,201 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sandeep Kaur Johal Recruitment</title>
-
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #172033; background: #fff; line-height: 1.6; }
+.container { width: min(1120px, 92%); margin: auto; }
+.header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.97); border-bottom: 1px solid #e6ebf2; }
+.nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-weight: 800; color: #0b2147; font-size: 1.05rem; }
+.brand span { color: #2f7fd6; }
+nav { display: flex; gap: 18px; align-items: center; }
+nav a { color: #34445e; text-decoration: none; font-weight: 600; font-size: .92rem; }
+nav a:hover { color: #1769aa; }
+.menu-toggle { display: none; border: 0; background: none; font-size: 1.5rem; }
+.hero { background: linear-gradient(135deg, #0b2147, #123b70); color: white; padding: 105px 0 95px; }
+.hero-content { max-width: 900px; }
+.eyebrow { letter-spacing: .14em; font-size: .76rem; font-weight: 800; color: #5c9fe2; margin: 0 0 10px; }
+.hero .eyebrow { color: #9ed0ff; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.05; margin: 0 0 24px; max-width: 850px; }
+h1 span { color: #9ed0ff; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 15px; color: #0b2147; }
+.hero h2 { color: white; }
+.hero-text { max-width: 680px; font-size: 1.15rem; color: #dce9f7; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { display: inline-block; border: 0; border-radius: 9px; padding: 13px 20px; font-weight: 800; text-decoration: none; cursor: pointer; font-size: .95rem; }
+.primary { background: #2f8ee5; color: white; }
+.secondary { background: white; color: #0b2147; }
+.light { background: #dceeff; color: #0b2147; }
+.section { padding: 85px 0; }
+.muted { background: #f4f7fb; }
+.section-heading { max-width: 720px; margin-bottom: 35px; }
+.search-box { display: flex; gap: 10px; max-width: 760px; }
+.search-box input { flex: 1; padding: 14px 16px; border: 1px solid #d6deea; border-radius: 9px; font-size: 1rem; }
+.notice { margin-top: 20px; padding: 15px 18px; border-radius: 9px; background: #eef5fc; color: #3b4b62; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: white; padding: 28px; border: 1px solid #e1e8f0; border-radius: 14px; box-shadow: 0 8px 25px rgba(11,33,71,.05); }
+.card h3 { color: #0b2147; margin-top: 0; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; }
+.advice-box { padding: 35px; border-radius: 16px; background: #eaf4ff; border: 1px solid #cfe5fa; }
+.dark { background: #0b2147; color: white; }
+.dark h2 { color: white; }
+.dark .eyebrow { color: #9ed0ff; }
+.contact { background: #eaf4ff; }
+footer { background: #07172f; color: #b9c7d9; padding: 25px 0; text-align: center; font-size: .9rem; }
+@media (max-width: 800px) {
+  .menu-toggle { display: block; color: #0b2147; }
+  nav { display: none; position: absolute; top: 72px; left: 0; right: 0; background: white; padding: 15px 4%; flex-direction: column; align-items: flex-start; border-bottom: 1px solid #e6ebf2; }
+  nav.open { display: flex; }
+  .cards, .split { grid-template-columns: 1fr; }
+  .hero { padding: 75px 0; }
+  .search-box { flex-direction: column; }
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
-    }
-
-    header {
-      background: #173b6c;
-      color: white;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    header h2 {
-      margin-bottom: 5px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    .hero {
-      padding: 90px 8%;
-      text-align: center;
-      background: white;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      color: #173b6c;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 19px;
-      color: #555;
-      margin-bottom: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 13px 24px;
-      margin: 6px;
-      background: #173b6c;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-
-    .section {
-      padding: 60px 8%;
-      text-align: center;
-    }
-
-    .section h2 {
-      color: #173b6c;
-      margin-bottom: 20px;
-    }
-
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: white;
-      padding: 30px;
-      width: 280px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      background: #173b6c;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-  </style>
+</style>
 </head>
-
 <body>
-
-<header>
-  <h2>Sandeep Kaur Johal Recruitment</h2>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#jobs">Find a Job</a>
-    <a href="#employers">Post a Job</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero" id="home">
-  <h1>Find the Right Job. Build Your Future.</h1>
-
-  <p>
-    Connecting talented candidates with employers and career opportunities.
-  </p>
-
-  <a class="button" href="#jobs">Find a Job</a>
-  <a class="button" href="#employers">Post a Job</a>
-</section>
-
-<section class="section" id="jobs">
-  <h2>Jobs for Candidates</h2>
-
-  <p>Explore employment opportunities and apply for jobs.</p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Search Jobs</h3>
-      <p>Discover opportunities that match your skills and experience.</p>
+  <header class="header">
+    <div class="container nav">
+      <div class="brand">Sandeep Kaur Johal <span>Recruitment</span></div>
+      <button class="menu-toggle" aria-label="Open menu">☰</button>
+      <nav id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#jobs">Find a Job</a>
+        <a href="#companies">Hiring Companies</a>
+        <a href="#advice">Career Advice</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>Upload Resume</h3>
-      <p>Create your candidate profile and upload your resume.</p>
-    </div>
-  </div>
-</section>
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">RECRUITMENT • CAREER GUIDANCE • OPPORTUNITIES</p>
+        <h1>Connecting Talent with the <span>Right Opportunities.</span></h1>
+        <p class="hero-text">Find jobs, connect with hiring companies, and get free career advice for your next step.</p>
+        <div class="actions">
+          <a class="btn primary" href="#jobs">Find a Job</a>
+          <a class="btn secondary" href="#post-job">Post a Job</a>
+          <a class="btn light" href="#advice">Career Advice</a>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="employers">
-  <h2>For Employers</h2>
+    <section id="jobs" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">OPPORTUNITIES</p>
+          <h2>Find a Job</h2>
+          <p>Explore opportunities for professionals and students.</p>
+        </div>
+        <div class="search-box">
+          <input type="text" id="jobSearch" placeholder="Search jobs, skills or companies">
+          <button class="btn primary" onclick="searchJobs()">Search Jobs</button>
+        </div>
+        <div id="jobResult" class="notice">Job listings will be connected to the database in the backend stage.</div>
+      </div>
+    </section>
 
-  <p>Find candidates and advertise your available positions.</p>
+    <section id="companies" class="section muted">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">EMPLOYERS</p>
+          <h2>Hiring Companies</h2>
+          <p>Discover companies looking for professionals and students.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><h3>Professional Hiring</h3><p>Opportunities for experienced candidates.</p></article>
+          <article class="card"><h3>Student Opportunities</h3><p>Entry-level roles, internships and early-career opportunities.</p></article>
+          <article class="card"><h3>Employer Connections</h3><p>Connect employers with suitable candidates.</p></article>
+        </div>
+      </div>
+    </section>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Post a Job</h3>
-      <p>Create job vacancies for candidates to discover.</p>
-    </div>
+    <section id="advice" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">FREE GUIDANCE</p>
+          <h2>Free Career Advice</h2>
+          <p>Read advice shared by real people to help you understand career choices, job opportunities and the skills employers are seeking.</p>
+          <a class="btn primary" href="#contact">Get Career Advice</a>
+        </div>
+        <div class="advice-box">
+          <strong>Real people. Practical advice.</strong>
+          <p>Advice posts will be added and managed through the backend.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>Find Candidates</h3>
-      <p>Connect with suitable candidates for your company.</p>
-    </div>
-  </div>
-</section>
+    <section id="post-job" class="section dark">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">FOR EMPLOYERS</p>
+          <h2>Post a Job</h2>
+          <p>Employers will be able to log in and publish vacancies. The site administrator will also be able to post jobs.</p>
+        </div>
+        <button class="btn light" onclick="showEmployerMessage()">Employer Login</button>
+      </div>
+    </section>
 
-<section class="section" id="about">
-  <h2>About Us</h2>
+    <section id="about" class="section">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">ABOUT US</p>
+          <h2>Helping Talent Meet Opportunity</h2>
+        </div>
+        <p>Sandeep Kaur Johal Recruitment is designed to connect candidates, employers and recruitment opportunities in one accessible platform.</p>
+      </div>
+    </section>
 
-  <p>
-    Sandeep Kaur Johal Recruitment is a recruitment platform based in
-    Jalandhar, Punjab, helping connect candidates and employers.
-  </p>
-</section>
+    <section id="what-we-do" class="section muted">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">OUR SERVICES</p>
+          <h2>What We Do</h2>
+        </div>
+        <div class="cards">
+          <article class="card"><h3>Recruitment Support</h3><p>Connect candidates with relevant opportunities.</p></article>
+          <article class="card"><h3>Career Guidance</h3><p>Make career information easier to access.</p></article>
+          <article class="card"><h3>AI-Assisted Tools</h3><p>Use AI tools to explore markets and employment opportunities.</p></article>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="contact">
-  <h2>Contact Us</h2>
+    <section id="contact" class="section contact">
+      <div class="container">
+        <p class="eyebrow">CONTACT</p>
+        <h2>Let's Connect</h2>
+        <p>Phone, WhatsApp and address details can be added here next.</p>
+        <a class="btn primary" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </section>
+  </main>
 
-  <p>Get in touch with Sandeep Kaur Johal Recruitment for recruitment assistance.</p>
-</section>
+  <footer>
+    <div class="container">© 2026 Sandeep Kaur Johal Recruitment</div>
+  </footer>
 
-<footer>
-  <p>&copy; 2026 Sandeep Kaur Johal Recruitment. All rights reserved.</p>
-</footer>
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector("#navLinks");
+    menuToggle.addEventListener("click", () => navLinks.classList.toggle("open"));
 
+    function searchJobs() {
+      const query = document.getElementById("jobSearch").value.trim();
+      const result = document.getElementById("jobResult");
+      result.textContent = query
+        ? `Search requested for: ${query}. Live job results will be connected in the backend.`
+        : "Enter a job title, skill or company to search.";
+    }
+
+    function showEmployerMessage() {
+      alert("Employer login will be connected during the backend stage.");
+    }
+  </script>
 </body>
 </html>
+restore full index.html
