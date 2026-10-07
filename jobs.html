@@ -1,1 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Jobs - Sandeep Kaur Johal Recruitment
+    </title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f9fc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #0b1f3a;
+            color: white;
+            padding: 16px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #f4b942;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 13px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: #17365f;
+            color: #f4b942;
+        }
+
+        .jobs-hero {
+            background: linear-gradient(
+                135deg,
+                #0b1f3a,
+                #173f6f
+            );
+
+            color: white;
+            text-align: center;
+            padding: 80px 6%;
+        }
+
+        .jobs-hero h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .jobs-hero h1 span {
+            color: #f4b942;
+        }
+
+        .jobs-hero p {
+            font-size: 18px;
+            color: #e5edf7;
+        }
+
+        .jobs-section {
+            padding: 75px 6%;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: #0b1f3a;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(11,31,58,0.08);
+            border: 1px solid #e5eaf0;
+        }
+
+        .job-card h3 {
+            color: #0b1f3a;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .job-card p {
+            color: #667085;
+            margin-bottom: 10px;
+        }
+
+        .job-card strong {
+            color: #1f2937;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 11px 20px;
+            background: #f4b942;
+            color: #0b1f3a;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .apply-btn:hover {
+            background: #ffd36b;
+        }
+
+        .cta {
+            background: #0b1f3a;
+            color: white;
+            text-align: center;
+            padding: 70px 6%;
+        }
+
+        .cta h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 25px;
+            color: #dce6f2;
+        }
+
+        footer {
+            background: #071528;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px 6%;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+
+            .jobs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .jobs-hero {
+                padding: 60px 5%;
+            }
+
+            .jobs-hero h1 {
+                font-size: 36px;
+            }
+
+            .jobs-section {
+                padding: 55px 5%;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 7px 9px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="navbar">
+
+            <div class="logo">
+                Sandeep Kaur <span>Johal</span>
+            </div>
+
+            <nav>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="jobs.html">
+                    Find a Job
+                </a>
+
+                <a href="post-job.html">
+                    Post a Job
+                </a>
+
+                <a href="career-advice.html">
+                    Career Advice
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <section class="jobs-hero">
+
+        <h1>
+            Find Your
+            <span>Next Opportunity.</span>
+        </h1>
+
+        <p>
+            Explore available jobs and take the next step
+            in your career.
+        </p>
+
+    </section>
+
+    <main>
+
+        <section class="jobs-section">
+
+            <div class="section-container">
+
+                <div class="section-title">
+
+                    <h2>
+                        Available Jobs
+                    </h2>
+
+                    <p>
+                        Find opportunities that match
+                        your skills and career goals.
+                    </p>
+
+                </div>
+
+                <div class="jobs-grid">
+
+                    <div class="job-card">
+
+                        <h3>
+                            Sales Executive
+                        </h3>
+
+                        <p>
+                            <strong>Location:</strong>
+                            Jalandhar, Punjab
+                        </p>
+
+                        <p>
+                            <strong>Experience:</strong>
+                            1–3 Years
+                        </p>
+
+                        <p>
+                            <strong>Job Type:</strong>
+                            Full Time
+                        </p>
+
+                        <p>
+                            We are looking for an energetic
+                            candidate with good communication
+                            and sales skills.
+                        </p>
+
+                        <a href="#" class="apply-btn">
+                            Apply Now
+                        </a>
+
+                    </div>
+
+                    <div class="job-card">
+
+                        <h3>
+                            HR Executive
+                        </h3>
+
+                        <p>
+                            <strong>Location:</strong>
+                            Jalandhar, Punjab
+                        </p>
+
+                        <p>
+                            <strong>Experience:</strong>
+                            1–2 Years
+                        </p>
+
+                        <p>
+                            <strong>Job Type:</strong>
+                            Full Time
+                        </p>
+
+                        <p>
+                            Responsible for recruitment,
+                            employee coordination and
+                            HR activities.
+                        </p>
+
+                        <a href="#" class="apply-btn">
+                            Apply Now
+                        </a>
+
+                    </div>
+
+                    <div class="job-card">
+
+                        <h3>
+                            Data Analyst
+                        </h3>
+
+                        <p>
+                            <strong>Location:</strong>
+                            Punjab / Remote
+                        </p>
+
+                        <p>
+                            <strong>Experience:</strong>
+                            0–2 Years
+                        </p>
+
+                        <p>
+                            <strong>Job Type:</strong>
+                            Full Time
+                        </p>
+
+                        <p>
+                            Opportunity for candidates
+                            interested in data analysis
+                            and business insights.
+                        </p>
+
+                        <a href="#" class="apply-btn">
+                            Apply Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="cta">
+
+            <div class="section-container">
+
+                <h2>
+                    Ready for Your Next Opportunity?
+                </h2>
+
+                <p>
+                    Start exploring jobs and take the
+                    next step toward your career goals.
+                </p>
+
+                <a href="contact.html" class="apply-btn">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 Sandeep Kaur Johal Recruitment.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
 
